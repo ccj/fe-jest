@@ -66,3 +66,6 @@ babel配置
 // 取.babelrc           则会取.babelrc的配置  
 // 在运行测试之前，结合babel, 先把代码做一次转化  
 // 最后运行转化过的测试用例代码  
+
+
+## 3.jest的匹配器Matcher（lesson4）
