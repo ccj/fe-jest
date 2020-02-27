@@ -68,4 +68,10 @@ babel配置
 // 最后运行转化过的测试用例代码  
 
 
-## 3.jest的匹配器Matcher（lesson4）
+## 4.jest的匹配器Matcher（lesson4）
+当运行npm run test时，jest会自动到项目找以test.js的文件。
+在我们编写测试用例过程中，如果每次都要运行npm run test，这样就会很麻烦。
+我们可以在package.json中，加上--watchAll的参数，这样就会实时去监听我们的测试用例。
+
+简单列几个匹配器:toBe,toEqual。
+匹配器有很多，不一一介绍，详见[官方匹配器API](https://jestjs.io/docs/zh-Hans/expect)
