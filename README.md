@@ -85,7 +85,7 @@ babel配置
 | › Press o to only run tests related to changed files. |  ›按o仅运行与更改的文件相关的测试。|
 | › Press p to filter by a filename regex pattern. |  ›按p按文件名正则表达式模式过滤。|
 | › Press t to filter by a test name regex pattern. |  ›按t以测试名称正则表达式模式进行过滤。|
-| › Press q to quit watch mode. |   ›按q退出监视模式|
-| › Press Enter to trigger a test run. |   ›按Enter触发测试运行。|
+| › Press q to quit watch mode. |  ›按q退出监视模式|
+| › Press Enter to trigger a test run. |  ›按Enter触发测试运行。|
 
 >* 注意：o模式底层机制依赖git，通过git来知晓哪些文件是否给更改，o模式也可通过在jest --watch 配置。
