@@ -1,5 +1,6 @@
 # fe-jest
-前端要学的测试课
+掘金：https://juejin.im/post/5e54d5ca6fb9a07c817613d4
+code：https://github.com/ccj/fe-jest
 
 ## 1.自动测试及原理（lesson1）
 核心代码：
@@ -30,8 +31,7 @@ test('测试加法3+7',() => {
 
 ```
 
-## 2.jest模块化测试（lesson2）
-拷贝一份lesson1代码    
+## 2.jest模块化测试（lesson2） 
 npm init 初始化代码为npm的一个包   
 npm install jest@24.8.0 -D 安装jest  
 jest默认封装了test以及expect的方法，可直接以commonJS方式引入和调用
