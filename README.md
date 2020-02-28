@@ -1,5 +1,5 @@
 # fe-jest
-掘金：https://juejin.im/post/5e54d5ca6fb9a07c817613d4
+掘金：https://juejin.im/post/5e54d5ca6fb9a07c817613d4  
 code：https://github.com/ccj/fe-jest
 
 ## 1.自动测试及原理（lesson1）
@@ -79,13 +79,13 @@ babel配置
 ## 5.jest命令行工具的使用（lesson5）
 >* jest --watchAll 模式下，运行npm run test时，控制台会有如下提示，直接看英语提示即可操作，非常简单。  
 
-工具命令 | 翻译
--|-|-
- › Press f to run only failed tests. | ›按f仅运行失败的测试。
- › Press o to only run tests related to changed files. |  ›按o仅运行与更改的文件相关的测试。
- › Press p to filter by a filename regex pattern. |  ›按p按文件名正则表达式模式过滤。
- › Press t to filter by a test name regex pattern. |  ›按t以测试名称正则表达式模式进行过滤。
- › Press q to quit watch mode. |   ›按q退出监视模式
- › Press Enter to trigger a test run. |   ›按Enter触发测试运行。
+|工具命令 | 翻译 |
+|------|------|
+|› Press f to run only failed tests. | ›按f仅运行失败的测试。|
+| › Press o to only run tests related to changed files. |  ›按o仅运行与更改的文件相关的测试。|
+| › Press p to filter by a filename regex pattern. |  ›按p按文件名正则表达式模式过滤。|
+| › Press t to filter by a test name regex pattern. |  ›按t以测试名称正则表达式模式进行过滤。|
+| › Press q to quit watch mode. |   ›按q退出监视模式|
+| › Press Enter to trigger a test run. |   ›按Enter触发测试运行。|
 
 >* 注意：o模式底层机制依赖git，通过git来知晓哪些文件是否给更改，o模式也可通过在jest --watch 配置。
