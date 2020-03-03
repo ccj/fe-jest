@@ -89,3 +89,26 @@ babel配置
 | › Press Enter to trigger a test run. |  ›按Enter触发测试运行。|
 
 >* 注意：o模式底层机制依赖git，通过git来知晓哪些文件是否给更改，o模式也可通过在jest --watch 配置。
+
+## 6.异步代码的测试方法（lesson6）
+引用axios，npm install axios@0.19.0 --save, axios相关可自行查看[官方文档](http://www.axios-js.com/)  
+
+回调类型异步函数需注意，测试用例走不到回调函数里，可采用done函数来操作。
+```
+export const fetchData = (fn) => {
+    axios.get('http://www.dell-lee.com/react/api/demo.json').then((response) => {
+        fn(response.data);
+    }) 
+}
+
+test('fetchData 返回结果为 { success: true }', (done) => {
+    fetchData((data) => {
+        expect(data).toEqual({
+            success: true
+        })
+        done();
+    })
+});
+```
+无异步函数类型当然会更简单了。  
+expect.assertions(1); 表示之后的代码中至少需要执行一次expect方法，否则测试用例将不通过。（在测试promise的catech很有用处，根据具体情况使用）  
