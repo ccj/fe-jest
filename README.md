@@ -94,6 +94,9 @@ babel配置
 引用axios，npm install axios@0.19.0 --save, axios相关可自行查看[官方文档](http://www.axios-js.com/)  
 
 回调类型异步函数需注意，测试用例走不到回调函数里，可采用done函数来操作。
+>* 声明：
+>* http://www.dell-lee.com/react/api/demo.json 返回 {success: true} 用于测试返回成功  
+>* http://www.dell-lee.com/react/api/demo1.json 返回 404 用于测试返回失败  
 ```
 export const fetchData = (fn) => {
     axios.get('http://www.dell-lee.com/react/api/demo.json').then((response) => {
@@ -110,5 +113,41 @@ test('fetchData 返回结果为 { success: true }', (done) => {
     })
 });
 ```
-无异步函数类型当然会更简单了。  
-expect.assertions(1); 表示之后的代码中至少需要执行一次expect方法，否则测试用例将不通过。（在测试promise的catech很有用处，根据具体情况使用）  
+无异步函数类型当然会更简单了。
+>* expect.assertions(1); 表示之后的代码中至少需要执行一次expect方法，否则测试用例将不通过。（在测试promise的catch情况下很有用处，根据具体情况使用）   
+```
+// 成功：
+test('fetchDataSuccess 返回结果为 { success: true }', () => {
+    return fetchDataSuccess().then((response) => {
+        expect(response.data).toEqual({
+            success: true
+        })
+    })
+});
+// 失败：
+test('fetchDataThrow 返回结果为 404', () => {
+    expect.assertions(1);
+    return fetchDataThrow().catch((e) => {
+        expect(e.toString().indexOf('404') > -1).toBe(true);
+    });
+});
+```
+
+测试异步函数的时候，我们还可以有第2种写法：
+```
+// 测试成功情况
+test('fetchData1 返回结果为 { success: true }', () => {
+    return expect(fetchData1()).resolves.toMatchObject({
+        data: {
+            success: true
+        }
+    })
+});
+
+// 测试失败情况
+test('fetchDataThrow 返回结果为 404', () => {
+    return expect(fetchDataThrow()).rejects.toThrow();
+});
+```
+
+当然，写法还有很多，根据个人喜欢去编写测试用例即可。

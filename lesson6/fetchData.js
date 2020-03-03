@@ -9,3 +9,11 @@ export const fetchData = (fn) => {
 export const fetchData1= () => {
     return axios.get('http://www.dell-lee.com/react/api/demo.json');
 }
+
+export const fetchDataSuccess= () => {
+    return axios.get('http://www.dell-lee.com/react/api/demo.json');
+}
+
+export const fetchDataThrow= () => {
+    return axios.get('http://www.dell-lee.com/react/api/demo1.json');
+}
