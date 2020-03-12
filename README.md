@@ -176,10 +176,18 @@ jest官方提供如下几个钩子函数
     })
 
 ```
-同时describe函数，你可以理解为是给测试用例分组
+同时describe函数，你可以把他理解为是给测试用例分组,这对钩子函数指定作用域很有用处。
+
 ```
     describe('测试增加相关的代码', () => {
-        test('测试 Counter 中的 addOne 方法', () => {
+        beforeAll(() => {
+            console.log('beforeAll test addOne')
+        })
+
+        beforeEach(() => {
+            console.log('beforeEach test addOne')
+        })
+        test.only('测试 Counter 中的 addOne 方法', () => {
             counter.addOne();
             expect(counter.number).toBe(1);
         })
@@ -190,4 +198,7 @@ jest官方提供如下几个钩子函数
         })
     }) 
 ```
+>* 如果你想只运行这一个测试用例，可以直接test.only去写，其他的测试用例会skipped掉，这对在测试用例中定位问题很有帮助。  
+>* 另外对在测试用例之前做的准备工作，最好全部都写在对应的钩子函数中，避免以后踩坑。  
+
 具体钩子函数相关用法可参考\>>> [官网API](https://jestjs.io/docs/en/setup-teardown) <<<

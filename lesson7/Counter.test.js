@@ -25,7 +25,15 @@ describe('Counter 的测试代码', () => {
     })
     
     describe('测试增加相关的代码', () => {
-        test('测试 Counter 中的 addOne 方法', () => {
+        beforeAll(() => {
+            console.log('beforeAll test addOne')
+        })
+
+        beforeEach(() => {
+            console.log('beforeEach test addOne')
+        })
+
+        test.only('测试 Counter 中的 addOne 方法', () => {
             counter.addOne();
             expect(counter.number).toBe(1);
         })
