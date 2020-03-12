@@ -151,3 +151,43 @@ test('fetchDataThrow 返回结果为 404', () => {
 ```
 
 当然，写法还有很多，根据个人喜好去编写测试用例即可。
+
+## 7.Jest中的钩子函数（lesson7）
+jest官方提供如下几个钩子函数
+```
+    beforeAll(() => {
+        // 在所有测试用例之前执行
+        console.log('beforeAll')
+    })
+    
+    afterAll(() => {
+        // 在所有测试用例之后执行
+        console.log('afterAll')
+    })
+    
+    beforeEach(() => {
+        // 在每个测试用例之后执行
+        console.log('beforeEach')
+    })
+    
+    afterEach(() => {
+        // 在每个测试用例之前执行
+        console.log('afterEach')
+    })
+
+```
+同时describe函数，你可以理解为是给测试用例分组
+```
+    describe('测试增加相关的代码', () => {
+        test('测试 Counter 中的 addOne 方法', () => {
+            counter.addOne();
+            expect(counter.number).toBe(1);
+        })
+        
+        test('测试 Counter 中的 addTwo 方法', () => {
+            counter.addTwo();
+            expect(counter.number).toBe(2);
+        })
+    }) 
+```
+具体钩子函数相关用法可参考\>>> [官网API](https://jestjs.io/docs/en/setup-teardown) <<<
